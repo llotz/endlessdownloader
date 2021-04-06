@@ -15,7 +15,7 @@ while True:
 		currentDT = datetime.datetime.now()
 		diff = (currentDT-start).total_seconds()
 		mbps = 100/diff
-		print(currentDT.strftime("%Y-%m-%d %H:%M:%S: ") + str(gb) + " GB downloaded "+str("{:.2f}".format(mbps))+" mbps")
+		print(currentDT.strftime("%H:%M:%S: ") + str(gb) + " GB at "+str("{:.2f}".format(mbps))+" mbps")
 	except KeyboardInterrupt:
 		print(" kthxbye ")
 		exit()

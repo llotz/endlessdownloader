@@ -9,7 +9,7 @@ while True:
     try:
         start = datetime.datetime.now()
         data = requests.get(url)
-        size = sys.getsizeof(data.content)/1024/1024
+        size = round(sys.getsizeof(data.content)/1024/1024, 2)
         data = None
         i = i+1
         gb = i/(1000/size)
@@ -19,7 +19,7 @@ while True:
         print(currentDT.strftime("%H:%M:%S: ") + str(gb) +
               " GB at "+str("{:.2f}".format(mbps))+" mbps")
     except KeyboardInterrupt:
-        print(" kthxbye ")
+        print("---kthxbye---")
         exit()
     except:
         print("Ooops:", sys.exc_info()[0], " occured")

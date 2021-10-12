@@ -9,14 +9,13 @@ while True:
     try:
         start = datetime.datetime.now()
         data = requests.get(url)
-        response = requests.head(url)
-        size = sys.getsizeof(data.content)
+        size = sys.getsizeof(data.content)/1024/1024
         data = None
         i = i+1
-        gb = i/10
+        gb = i/(1000/size)
         currentDT = datetime.datetime.now()
         diff = (currentDT-start).total_seconds()
-        mbps = 100/diff
+        mbps = size/diff
         print(currentDT.strftime("%H:%M:%S: ") + str(gb) +
               " GB at "+str("{:.2f}".format(mbps))+" mbps")
     except KeyboardInterrupt:
